@@ -19,6 +19,7 @@ namespace Assets.Scripts.Character.Health
         public Action<int> OnHealthChanged;
         public Action OnDead;
         public string soundName;
+        public string deathSound;
 
         private DamageEffect damageEffect;
         private PlaySound playSound;
@@ -26,7 +27,7 @@ namespace Assets.Scripts.Character.Health
         void Start()
         {
             damageEffect = GetComponent<DamageEffect>();
-            playSound = GetComponentInChildren<PlaySound>();
+            playSound = GetComponent<PlaySound>();
         }
         
         public void ApplyDamage(AttackComponent attackComponent)
@@ -39,6 +40,7 @@ namespace Assets.Scripts.Character.Health
             {
                 isDead = true;
                 health = 0;
+                if (playSound) playSound.Play(deathSound);
                 OnDead?.Invoke();
             }
 

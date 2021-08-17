@@ -11,7 +11,6 @@ public class MuteIconSwap : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
     }
 
     // Update is called once per frame
@@ -32,5 +31,15 @@ public class MuteIconSwap : MonoBehaviour
 
         ImageToSwap.GetComponent<Image>().sprite = muteIcon;
         currentSprite = muteIcon;
+    }
+
+    public void Mute(Image image)
+    {
+        image.GetComponent<Image>().sprite = muteIcon;
+    }
+
+    public void Unmute(Image image)
+    {
+        image.GetComponent<Image>().sprite = unmuteIcon;
     }
 }

@@ -27,4 +27,14 @@ public class CharacterAnimationEvents : MonoBehaviour
     {
         character.SetState(CharacterComponent.State.RunningFromEnemy);
     }
+
+    void AttackSound()
+    {
+        character.AttackComponent.AttackSound();
+    }
+
+    void DamageSoundEnemy()
+    {
+        character.AttackComponent.DamageSoundEnemy();
+    }
 }

@@ -13,9 +13,16 @@ namespace Assets.Scripts.Character.Attack
         [SerializeField] private int damage;
         public int Damage { get => damage; }
 
+        public string soundName;
+        public string damageEnemy;
+        private PlaySound playsound;
         public Action<int> OnDamageChanged;
         public Action OnAttackFinished;
 
+        private void Start()
+        {
+            playsound = GetComponent<PlaySound>();
+        }
         public void Attack(HealthComponent healthComponent)
         {
             if (healthComponent.IsDead)
@@ -28,5 +35,14 @@ namespace Assets.Scripts.Character.Attack
             OnAttackFinished?.Invoke();
         }
 
+        public void AttackSound()
+        {
+            if(playsound) playsound.Play(soundName);
+        }
+
+        public void DamageSoundEnemy()
+        {
+            if(playsound) playsound.Play(damageEnemy);
+        }
     }
 }

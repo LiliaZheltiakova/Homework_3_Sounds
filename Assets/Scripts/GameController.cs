@@ -9,12 +9,18 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private CharacterComponent[] playerCharacters;
     [SerializeField] private CharacterComponent[] enemyCharacters;
+    [SerializeField] private AudioSource BGMusic;
+
+    public string WinSound;
+    public string LoseSound;
+    private PlaySound playsound;
 
     private Coroutine gameLoop;
 
     private void Start()
     {
         gameLoop = StartCoroutine(GameLoop());
+        playsound = GetComponent<PlaySound>();
     }
     private IEnumerator GameLoop()
     {
@@ -58,7 +64,19 @@ public class GameController : MonoBehaviour
 
         isVictory = isPlayerCharacherAlive && !isEnemyCharacherAlive;
 
-        Debug.Log(isVictory ? "Victory" : "Defeat");
+        //Debug.Log(isVictory ? "Victory" : "Defeat");
+        BGMusic.Stop();
+        if(isVictory) 
+        {
+            Debug.Log("Victory");
+            if(playsound) playsound.Play(WinSound);
+        }
+
+        else
+        {
+            Debug.Log("Defeat");
+            if(playsound) playsound.Play(LoseSound);
+        }
     }
 
     private IEnumerator Turn(CharacterComponent[] playerCharacters, CharacterComponent[] enemyCharacters)

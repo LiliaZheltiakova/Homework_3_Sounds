@@ -125,7 +125,15 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 82c6fe432d2f09042b3b02c166c966aa
+    name: GameSounds
+  - guid: ad2e9c83722da6e4ca6ccb96fb2d6489
+    name: LevelsMusic
+  - guid: 09742a45c687a0348ba401ef07ec3a02
+    name: MainMenuMusic
+  - guid: 9dbd6e6d9e3554c4ba2f19ea28ddcaf1
+    name: UISounds
   m_AudioMixerGroupViews:
   - guids:
     - 1ce936deeb2a3784eb89610f23520e4c
@@ -185,10 +193,10 @@ AudioMixerSnapshotController:
   m_FloatValues:
     82c6fe432d2f09042b3b02c166c966aa: -0.025776558
     ad2e9c83722da6e4ca6ccb96fb2d6489: 0
-    09742a45c687a0348ba401ef07ec3a02: -0.037667945
-    8ec0d2464a95c974693790072722af34: -80
-    d51bd30aa64114d46a854e8f99a14e3b: -80
-    9dbd6e6d9e3554c4ba2f19ea28ddcaf1: 0
+    09742a45c687a0348ba401ef07ec3a02: 0.3
+    8ec0d2464a95c974693790072722af34: -0.037667945
+    d51bd30aa64114d46a854e8f99a14e3b: 0.10800299
+    9dbd6e6d9e3554c4ba2f19ea28ddcaf1: -0.19117308
   m_TransitionOverrides: {}
 --- !u!243 &1237054624119510225
 AudioMixerGroupController:
@@ -215,7 +223,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LevelMusic
+  m_Name: LevelsMusic
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 5915404283f98c04fa2cb392d6e0b435
   m_Children: []
